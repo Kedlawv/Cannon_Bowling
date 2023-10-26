@@ -15,6 +15,9 @@ public class Cannon : MonoBehaviour
     [SerializeField]
     private GameObject cannonBallPrefab;
 
+    [SerializeField]
+    private List<GameObject> cannonBallAmmo;
+
     private GameObject cannonBallSpawn;
     private GameObject cannonBase;
     private bool hasFired = false;
@@ -51,15 +54,30 @@ public class Cannon : MonoBehaviour
 
     private void FireCanonball()
     {
-        GameObject cannonBall = Instantiate(cannonBallPrefab, cannonBallSpawn.transform.position, cannonBallSpawn.transform.rotation);
+        if(cannonBallAmmo.Count > 0)
+        {
+            // GameObject cannonBall = Instantiate(cannonBallPrefab, cannonBallSpawn.transform.position, cannonBallSpawn.transform.rotation);
+            GameObject poppedCannonBall = cannonBallAmmo[cannonBallAmmo.Count - 1];
+            cannonBallAmmo.RemoveAt(cannonBallAmmo.Count - 1);
+            poppedCannonBall.transform.position = cannonBallSpawn.transform.position;
 
-        Rigidbody rb = cannonBall.GetComponent<Rigidbody>();
-        rb.AddForce(cannonBallSpawn.transform.up * fireForce);
+            Rigidbody rb = poppedCannonBall.GetComponent<Rigidbody>();
+            rb.AddForce(cannonBallSpawn.transform.up * fireForce);
+        } else
+        {
+            GameOver();
+        }
+       
     }
 
     private IEnumerator ResetHasFired()
     {
         yield return new WaitForSeconds(fireDelay);
         hasFired = false;
+    }
+
+    private void GameOver()
+    {
+
     }
 }
