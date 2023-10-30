@@ -9,7 +9,7 @@ public class Counter : MonoBehaviour
 {
     public TextMeshProUGUI CounterText;
 
-    private int Count = 0;
+    public int Count { get; set; }
 
     private void Start()
     {

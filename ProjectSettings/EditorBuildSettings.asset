@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/ScoreBoardScene.unity
+    guid: 52e4f9eb7d3e3a841a0109ce4790c189
+  - enabled: 1
+    path: Assets/Scenes/Cannon Bowling.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

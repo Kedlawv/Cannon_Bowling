@@ -5,6 +5,8 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 
 {
+    [SerializeField]
+    private Counter counter;
 
     [SerializeField]
     private float rotationSpeed = 30f;
@@ -78,6 +80,6 @@ public class Cannon : MonoBehaviour
 
     private void GameOver()
     {
-
+        ScoreManager.Instance.roundOver(counter.Count);
     }
 }

@@ -1527,6 +1527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7618e8f0f9581544b46ae13d2455e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  counter: {fileID: 826674776}
   rotationSpeed: 30
   fireForce: 1000
   cannonBallPrefab: {fileID: 7094148859856752272, guid: 95a1ec79040ca5c46b45ac0523e37a8e, type: 3}
